@@ -13,7 +13,7 @@ A small semaphore in vanilla JS, useful as a lock pool for something like rate l
 
 Using `Sempahore` is really easy, just acquire() when you want access to a lock and release() when you're done.
     
-    var Semaphore = require("Semaphore");
+    var Semaphore = require("node-semaphore");
     var pool = Semaphore(5);
     for (int i = 0; i < 250; i++) {
         pool.acquire(function() {

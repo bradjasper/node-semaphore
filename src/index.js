@@ -8,7 +8,7 @@
 //
 // Example usage:
 //
-//    var Semaphore = require("Semaphore");
+//    var Semaphore = require("node-semaphore");
 //    var pool = Semaphore(5);
 //    for (int i = 0; i < 250; i++) {
 //      pool.acquire(function() { console.log("Running..."); pool.release(); });
