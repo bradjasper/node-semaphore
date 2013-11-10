@@ -2,6 +2,8 @@
 
 A small semaphore in vanilla JS, useful as a lock pool for something like rate limiting
 
+[![Build Status](https://travis-ci.org/bradjasper/node-semaphore.png?branch=master)](https://travis-ci.org/bradjasper/node-semaphore)
+
 ## Install
 
     npm install node-semaphore
