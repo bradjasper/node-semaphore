@@ -1,0 +1,40 @@
+{
+    "name": "node-semaphore",
+    "description": "A small semaphore in vanilla JS, useful as a lock pool for rate limiting",
+    "version": "0.0.1",
+    "homepage": "https://github.com/bradjasper/node-semaphore",
+    "keywords": [
+        "node-semaphore",
+        "semaphore",
+        "rate limiting",
+        "pool",
+        "resource sharing",
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bradjasper/node-semaphore.git"
+    },
+    "author": {
+        "name": "Brad Jasper",
+        "email": "contact@bradjasper.com",
+        "url": "http://bradjasper.com"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://github.com/bradjasper/node-semaphore/blob/master/LICENSE.txt"
+        }
+    ],
+    "main": "src/index.js",
+    "engines": {
+        "node": ">= 0.6.x"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "mocha": "*",
+        "should": "*"
+    },
+    "private": false,
+    "scripts": {
+    }
+}
