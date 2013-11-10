@@ -8,7 +8,7 @@
         "semaphore",
         "rate limiting",
         "pool",
-        "resource sharing",
+        "resource sharing"
     ],
     "repository": {
         "type": "git",
@@ -36,5 +36,6 @@
     },
     "private": false,
     "scripts": {
+        "test": "./node_modules/mocha/bin/mocha"
     }
 }

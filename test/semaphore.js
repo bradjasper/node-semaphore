@@ -17,7 +17,6 @@ describe("Semaphore", function() {
         if (++curr == num) done();
       });
     }
-
   });
 
   it("will block until a new lock is available", function(done) {
@@ -39,6 +38,23 @@ describe("Semaphore", function() {
       should(curr).equal(5);
       done();
     }, 10);
+  });
 
+  it("gracefully handles calling release too many times & incorrectly", function() {
+
+    var count = 0;
+    var pool  = Semaphore(5);
+
+    pool.release();
+    pool.release();
+    pool.release();
+
+    for (var i = 0; i < 10; i++) {
+      pool.acquire(function() {
+        count++;
+      });
+    }
+
+    should(count).equal(5);
   });
 });

@@ -1,7 +1,7 @@
 //
 // Semaphore
 //
-// Semaphore is a lock that allows `max` number of parallel clients
+// Semaphore is a lock that allows `num` number of parallel clients
 //
 // Existing libraries were good, but none were vanilla Javascript with
 // no external dependencies, which was a requirement.
@@ -14,32 +14,28 @@
 //      pool.acquire(function() { console.log("Running..."); pool.release(); });
 //    }
 //
-function Semaphore(max) {
+module.exports = function Semaphore(num) {
 
-  var queue = [];
-  var active = 0;
-  max = max || 4;
+  var queue = [], active = 0;
+  num |= 4;
 
-  return {
-    acquire: function(callback) {
-      queue.push(callback);
-      step();
-    },
-    release: function() {
-      active--;
-      step();
-    }
-  };
-
-  function step() {
-    if (active >= max) return;
-
-    var callback = queue.pop(0);
-    if (callback) {
-      callback();
-      active++;
-    }
+  function acquire(callback) {
+    if (active >= num)
+      return queue.push(callback);
+    lock(callback);
   }
-}
 
-module.exports = Semaphore;
+  function release() {
+    if (active == 0) return;
+    active--;
+    lock(queue.pop());
+  }
+
+  function lock(callback) {
+    if (!callback) return;
+    callback();
+    active++;
+  }
+
+  return {acquire: acquire, release: release};
+}
