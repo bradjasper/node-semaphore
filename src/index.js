@@ -19,8 +19,6 @@ module.exports = function Semaphore(num) {
   var queue = [], active = 0;
   num = num || 10;
 
-  console.log("NUM = " + num);
-
   function acquire(callback) {
     if (active >= num)
       return queue.push(callback);
